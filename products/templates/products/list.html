@@ -1,0 +1,22 @@
+{% extends "base/base.html" %}
+{% block content %}
+{% include "shop/banner.html" %}
+<section>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-3">
+					<div class="left-sidebar">
+            {% include "main/category_bar.html" %}
+            {% include "main/brands.html" %}
+            {% include "main/range_price.html" %}
+            {% include "main/shiping.html" %}
+          </div>
+        </div>
+        <div class="col-sm-9 padding-right">
+          {% include "main/featured_items.html" %}
+          {% include "shop/pagination.html" %}
+        </div>
+      </div>
+  </div>
+</section>
+{% endblock %}

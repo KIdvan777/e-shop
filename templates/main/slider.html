@@ -1,0 +1,40 @@
+{% load static %}
+<section id="slider"><!--slider-->
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<div id="slider-carousel" class="carousel slide" data-ride="carousel">
+						<ol class="carousel-indicators">
+							<li data-target="#slider-carousel" data-slide-to="0" class="active"></li>
+							<li data-target="#slider-carousel" data-slide-to="1"></li>
+							<li data-target="#slider-carousel" data-slide-to="2"></li>
+						</ol>
+<!-- slider item  -->
+						<div class="carousel-inner">
+								{% for slide in slider_list %}
+								<div class="item active">
+									<div class="col-sm-6">
+										<h1><span>{{ slide.span }}</span>{{ slide.title }}</h1>
+										<h2>{{ slide.title_2 }}</h2>
+										<p>{{ slide.description }}</p>
+										<button type="button" class="btn btn-default get">Get it now</button>
+									</div>
+									<div class="col-sm-6">
+											<img src="{{slide.image.url}}" alt="">
+									</div>
+								</div>
+								{% endfor %}
+						</div>
+<!-- end slider item  -->
+						<a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
+							<i class="fa fa-angle-left"></i>
+						</a>
+						<a href="#slider-carousel" class="right control-carousel hidden-xs" data-slide="next">
+							<i class="fa fa-angle-right"></i>
+						</a>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</section><!--/slider-->
