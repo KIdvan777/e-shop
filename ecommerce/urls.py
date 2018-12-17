@@ -22,7 +22,7 @@ urlpatterns = [
     url(r'^checkout/$', checkout_view, name='checkout'),
     url(r'^404/$', page_404_view, name='404'),
 
-    
+
     url(r'^products/', include("products.urls", namespace='products')),
     url(r'^search/', include("search.urls", namespace='search')),
     # url(r'^shop/$', ProductListView.as_view()),
