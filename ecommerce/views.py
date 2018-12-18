@@ -105,7 +105,7 @@ def login_view(request):
             # print(request.user.is_authenticated())
             login(request, user)
             # context['login_form'] = LoginForm()
-            return redirect("/login")
+            return redirect("/")
         else:
             print("Error")
 
