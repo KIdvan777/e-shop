@@ -7,12 +7,15 @@ from django.shortcuts import render
 
 from app.models import App, Slider
 from products.models import Product
+from carts.models import Cart
 from .forms import ContactForm, LoginForm, RegisterForm
 
 
 # home view
 def home_view(request):
-    print(request.session.get("first_name",  'Unknown'))
+    print("items")
+    print(request.session.get("cart_items"))
+
     object_list = App.objects.all()
     product_list = Product.objects.all()
     slider_list = Slider.objects.all()

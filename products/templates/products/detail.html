@@ -12,6 +12,9 @@
           </div>
         </div>
         <div class="col-sm-9 padding-right">
+					{% include 'products/snippets/update-cart.html' with product=object cart=cart %}
+
+
             {% include "detail/parts.html" %}
         </div>
       </div>

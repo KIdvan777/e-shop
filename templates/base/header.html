@@ -3,8 +3,9 @@
 {% url 'shop' as shop_url %}
 {% url 'blog' as blog_url %}
 {% url 'login' as login_url %}
+
 {% url 'checkout' as checkout_url %}
-{% url 'cart' as cart_url %}
+{% url 'cart:home' as cart_url %}
 {% url 'contact' as contact_url %}
 {% url '404' as 404_url %}
 
@@ -83,7 +84,8 @@
 								<li><a href="{{checkout_url}}"
 									class="{% if request.path == checkout_url %}active{% endif %}"><i class="fa fa-crosshairs"></i> Checkout</a></li>
 								<li><a href="{{cart_url}}"
-									class="{% if request.path == cart_url %}active{% endif %}"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+									class="{% if request.path == cart_url %}active{% endif %}"><i class="fa fa-shopping-cart"></i>
+									 Cart <span style="color:red">{{ request.session.cart_items }}</span></a></li>
 								{% if request.user.is_authenticated %}
 								<li><a href="{{login_url}}"
 									class="{% if request.path == login_url %}active{% endif %}">
@@ -93,6 +95,9 @@
 									class="{% if request.path == login_url %}active{% endif %}">
 									<i class="fa fa-lock"></i> Login</a></li>
 								{% endif %}
+
+
+
 							</ul>
 						</div>
 					</div>
@@ -124,8 +129,11 @@
 											class="{% if request.path == shop_url %}active{% endif %}">Product Details</a></li>
 										<li><a href="{{checkout_url}}"
 											class="{% if request.path == checkout_url %}active{% endif %}">Checkout</a></li>
+
+
 										<li><a href="{{cart_url}}"
-											class="{% if request.path == cart_url %}active{% endif %}">Cart</a></li>
+											class="{% if request.path == cart_url %}active{% endif %}">Cart
+											<span style="color:red">{{ request.session.cart_items }}</span></a></li>
 										<li><a href="{{login_url}}"
 											class="{% if request.path == login_url %}active{% endif %}">Login</a></li>
                                     </ul>

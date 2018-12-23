@@ -4,6 +4,7 @@ from django.http import Http404
 
 from app.models import App
 from .models import Product
+from carts.models import Cart
 
 # # Create views here.
 
@@ -73,8 +74,11 @@ class ProductDetailSlugView(DetailView):
         context = super(ProductDetailSlugView, self).get_context_data(*args,**kwargs)
         print(context)
         object_list = App.objects.all()
+        request = self.request
+        cart_obj, new_obj = Cart.objects.new_or_get(request)
         # queryset = Product.objects.all()
         context['object_list'] = object_list
+        context['cart'] = cart_obj
         # context['product_list'] = queryset
         return context
 

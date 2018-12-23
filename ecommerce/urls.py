@@ -14,7 +14,7 @@ urlpatterns = [
     url(r'^shop-fbv/$', shop_view, name='shop'),
     url(r'^product-fbv/(?P<pk>\d+)/$', detail_view, name='product'),
     # url(r'^cart/$', cart_view, name='cart'),
-    url(r'^cart/$', cart_home, name='cart'),
+    # url(r'^cart/$', cart_home, name='home'),
     url(r'^login/$', login_view, name='login'),
     url(r'^contact/$', contact_view, name='contact'),
     url(r'^blog/$', blog_view, name='blog'),
@@ -24,6 +24,7 @@ urlpatterns = [
 
 
     url(r'^products/', include("products.urls", namespace='products')),
+    url(r'^cart/', include("carts.urls", namespace='cart')),
     url(r'^search/', include("search.urls", namespace='search')),
     # url(r'^shop/$', ProductListView.as_view()),
     # url(r'^product/(?P<pk>\d+)/$', ProductDetailView.as_view()),
