@@ -3,7 +3,7 @@
 {% url 'shop' as shop_url %}
 {% url 'blog' as blog_url %}
 {% url 'login' as login_url %}
-
+{% url 'logout' as logout_url %}
 {% url 'checkout' as checkout_url %}
 {% url 'cart:home' as cart_url %}
 {% url 'contact' as contact_url %}
@@ -87,8 +87,8 @@
 									class="{% if request.path == cart_url %}active{% endif %}"><i class="fa fa-shopping-cart"></i>
 									 Cart <span style="color:red">{{ request.session.cart_items }}</span></a></li>
 								{% if request.user.is_authenticated %}
-								<li><a href="{{login_url}}"
-									class="{% if request.path == login_url %}active{% endif %}">
+								<li><a href="{{logout_url}}"
+									class="{% if request.path == logout_url %}active{% endif %}">
 									<i class="fa fa-lock"></i> Logout</a></li>
 								{% else %}
 								<li><a href="{{login_url}}"

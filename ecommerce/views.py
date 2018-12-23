@@ -79,52 +79,6 @@ def detail_view(request, pk=None, *args, **kwargs):
     return render(request, "product-detail.html", context)
 
 
-#  login view
-
-User = get_user_model()
-
-def login_view(request):
-    object_list = App.objects.all()
-    login_form = LoginForm(request.POST or None)
-    reg_form = RegisterForm(request.POST or None)
-
-    context={
-        'object_list':object_list,
-        'login_form':login_form,
-        'reg_form':reg_form
-    }
-    # print("User logged in")
-    # print(request.user.is_authenticated())
-
-    if login_form.is_valid():
-        # print(login_form.cleaned_data)
-        username = login_form.cleaned_data.get("name")
-        password = login_form.cleaned_data.get("password")
-        # print(username)
-        # print(password)
-        user = authenticate(request, username=username, password=password)
-        # print(request.user.is_authenticated())
-        if user is not None:
-            # print(request.user.is_authenticated())
-            login(request, user)
-            # context['login_form'] = LoginForm()
-            return redirect("/")
-        else:
-            print("Error")
-
-    if reg_form.is_valid():
-        print(reg_form.cleaned_data)
-        username = reg_form.cleaned_data.get("name")
-        email = reg_form.cleaned_data.get("email")
-        password = reg_form.cleaned_data.get("password")
-        print(username)
-        print(email)
-        print(password)
-        new_user = User.objects.create_user(username, email, password)
-        print(new_user)
-
-    return render(request, "login.html", context)
-
 
 #  contact view ###############################################################################################################################
 
@@ -137,7 +91,7 @@ def contact_view(request):
     }
     if contact_form.is_valid():
         print(contact_form.cleaned_data)
-    return render(request, "test.html", context)
+    return render(request, "contact.html", context)
 
 
 #  checkout view ###############################################################################################################################################

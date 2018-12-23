@@ -4,7 +4,9 @@ from django.conf.urls.static import static
 from django.conf.urls import url, include
 from django.contrib import admin
 
-from .views import (home_view, login_view, shop_view, detail_view, cart_view, blog_view, checkout_view,
+from django.contrib.auth.views import LogoutView
+from accounts.views import login_view
+from .views import (home_view,  shop_view, detail_view, cart_view, blog_view, checkout_view,
 blog_single_view, contact_view, page_404_view)
 
 from carts.views import cart_home
@@ -16,6 +18,7 @@ urlpatterns = [
     # url(r'^cart/$', cart_view, name='cart'),
     # url(r'^cart/$', cart_home, name='home'),
     url(r'^login/$', login_view, name='login'),
+    url(r'^logout/$', LogoutView.as_view(), name='logout'),
     url(r'^contact/$', contact_view, name='contact'),
     url(r'^blog/$', blog_view, name='blog'),
     url(r'^blog-single/$', blog_single_view, name='blog-single'),

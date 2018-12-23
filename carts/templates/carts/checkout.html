@@ -2,11 +2,18 @@
 
 
 {% block content %}
-<h1>Checkout</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>Checkout</h1>
 
-<p>Cart Total: {{ object.cart.total }}</p>
-<p>Shipping Total: {{ object.shiping_total }}</p>
-<p>Order Total: {{ object.total }}</p>
+      <p>Cart Total: {{ object.cart.total }}</p>
+      <p>Shipping Total: {{ object.shiping_total }}</p>
+      <p>Order Total: {{ object.total }}</p>
 
+
+    </div>
+  </div>
+</div>
 
 {% endblock %}

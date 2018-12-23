@@ -1,5 +1,6 @@
 from django.db import models
 import math
+from decimal import Decimal
 from carts.models import Cart
 from django.db.models.signals import pre_save, post_save
 from ecommerce.utils import unique_order_id_generator
